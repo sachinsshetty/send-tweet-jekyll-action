@@ -12,6 +12,7 @@ async function run(): Promise<void> {
     validateInput('consumer-secret')
     validateInput('access-token')
     validateInput('access-token-secret')
+    validateInput('url-link')
 
     const twitter = new Twitter({
       consumer_key: core.getInput('consumer-key'),
@@ -31,7 +32,7 @@ async function run(): Promise<void> {
 
     var statusDate = yearValue + "/" +  months[monthValue] + "/" + dayValue
 
-    var url_link = core.getInput('url_link')
+    var url_link = core.getInput('url-link')
     var fileLink = url_link + "case-update-" + months[monthValue] + "-" + dayValue
 
     var twitterStatus = statusEnv + statusDate + " : " + fileLink
