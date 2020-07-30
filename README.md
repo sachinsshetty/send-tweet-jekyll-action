@@ -48,8 +48,8 @@ jobs:
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          url-link : "https://slabs.tech"
 ```
 
 Now whenever you push something to your repository, GitHub Actions
 will tweet on your behalf.
-

@@ -20,6 +20,8 @@ inputs:
     description: >
       Application access token secret, available in the "Keys and tokens"
       section of your application in the Twitter Developer site.
+  url-link:
+    description: Link to Jekyll website to append the posts
 runs:
   using: 'node12'
   main: 'dist/index.js'
