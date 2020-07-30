@@ -20,9 +20,25 @@ async function run(): Promise<void> {
       access_token_secret: core.getInput('access-token-secret')
     })
 
+    var statusEnv = new String(core.getInput('status'))
+
+    var datevalue = new Date()
+    var monthValue = (datevalue.getMonth() )
+    var yearValue = datevalue.getFullYear()
+    var dayValue = datevalue.getDate()
+
+    var months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+
+    var statusDate = yearValue + "/" +  months[monthValue] + "/" + dayValue
+
+    var url_link = core.getInput('url_link')
+    var fileLink = url_link + "case-update-" + months[monthValue] + "-" + dayValue
+
+    var twitterStatus = statusEnv + statusDate + " : " + fileLink
+
     twitter.post(
       '/statuses/update',
-      {status: core.getInput('status')},
+      {status: twitterStatus},
       (error, data, response) => {
         if (error) throw error
 
