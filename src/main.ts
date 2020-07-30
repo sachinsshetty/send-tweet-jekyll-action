@@ -52,7 +52,7 @@ async function run(): Promise<void> {
 
     twitter.post(
       '/statuses/update',
-      {twitterStatus},
+      {status: twitterStatus},
       (error, data, response) => {
         if (error) throw error
 

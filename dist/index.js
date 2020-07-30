@@ -4861,7 +4861,7 @@ function run() {
             const fileLink = `${urlLink}case-update-${months[monthValue]}-${dayValue}`;
             let twitterStatus = '';
             twitterStatus += `${statusEnv}${statusDate}  : ${fileLink}`;
-            twitter.post('/statuses/update', { twitterStatus }, (error, data, response) => {
+            twitter.post('/statuses/update', { status: twitterStatus }, (error, data, response) => {
                 if (error)
                     throw error;
                 console.log(data);
