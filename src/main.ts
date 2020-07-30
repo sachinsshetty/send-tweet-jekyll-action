@@ -21,22 +21,34 @@ async function run(): Promise<void> {
       access_token_secret: core.getInput('access-token-secret')
     })
 
-    let statusEnv = new String(core.getInput('status'))
-
+    const statusEnv = new String(core.getInput('status'))
     const datevalue = new Date()
     const monthValue = datevalue.getMonth()
     const yearValue = datevalue.getFullYear()
     const dayValue = datevalue.getDate()
 
-    const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+    const months = [
+      'january',
+      'february',
+      'march',
+      'april',
+      'may',
+      'june',
+      'july',
+      'august',
+      'september',
+      'october',
+      'november',
+      'december'
+    ]
 
-    let statusDate = yearValue + "/" +  months[monthValue] + "/" + dayValue
+    const statusDate = `${yearValue} /  ${months[monthValue]}  / ${dayValue}`
 
-    const url_link = core.getInput('url-link')
-    let fileLink = url_link + "case-update-" + months[monthValue] + "-" + dayValue
+    const urlLink = core.getInput('url-link')
+    const fileLink = `${urlLink}case-update-${months[monthValue]}-${dayValue}`
 
     let twitterStatus = ''
-    twitterStatus += statusEnv + statusDate + " : " + fileLink
+    twitterStatus += `${statusEnv}${statusDate}  : ${fileLink}`
 
     twitter.post(
       '/statuses/update',
