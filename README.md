@@ -1,4 +1,9 @@
-<a href="https://github.com/ethomson/send-tweet-action/actions"><img alt="send-tweet-action status" src="https://github.com/ethomson/send-tweet-action/workflows/CI/badge.svg?branch=master&event=push"></a>
+<a href="https://github.com/sachinsshetty/send-tweet-jekyll-action/actions"><img alt="send-tweet-action status" src="https://github.com/sachinsshetty/send-tweet-jekyll-action/workflows/CI/badge.svg?branch=master&event=push"></a>
+
+
+* After making changes to src/main.ts
+  * run "npm run all"
+  * check in dist folder
 
 # Send a tweet from a GitHub Actions workflow
 

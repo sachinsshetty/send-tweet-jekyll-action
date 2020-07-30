@@ -1,5 +1,5 @@
 {
-  "name": "send-tweet-action",
+  "name": "send-tweet-jekyll-action",
   "version": "1.0.0",
   "private": true,
   "description": "Post a tweet during a GitHub Actions workflow",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ethomson/send-tweet-action.git"
+    "url": "git+https://github.com/sachinsshetty/send-tweet-jekyll-action.git"
   },
   "keywords": [
     "actions",
     "node",
     "setup"
   ],
-  "author": "Edward Thomson",
+  "author": "Sachin Shetty",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.0",
