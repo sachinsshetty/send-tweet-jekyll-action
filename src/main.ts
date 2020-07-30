@@ -21,21 +21,22 @@ async function run(): Promise<void> {
       access_token_secret: core.getInput('access-token-secret')
     })
 
-    var statusEnv = new String(core.getInput('status'))
+    let statusEnv = new String(core.getInput('status'))
 
-    var datevalue = new Date()
-    var monthValue = (datevalue.getMonth() )
-    var yearValue = datevalue.getFullYear()
-    var dayValue = datevalue.getDate()
+    const datevalue = new Date()
+    const monthValue = datevalue.getMonth()
+    const yearValue = datevalue.getFullYear()
+    const dayValue = datevalue.getDate()
 
-    var months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+    const months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
-    var statusDate = yearValue + "/" +  months[monthValue] + "/" + dayValue
+    let statusDate = yearValue + "/" +  months[monthValue] + "/" + dayValue
 
-    var url_link = core.getInput('url-link')
-    var fileLink = url_link + "case-update-" + months[monthValue] + "-" + dayValue
+    const url_link = core.getInput('url-link')
+    let fileLink = url_link + "case-update-" + months[monthValue] + "-" + dayValue
 
-    var twitterStatus = statusEnv + statusDate + " : " + fileLink
+    let twitterStatus = ''
+    twitterStatus += statusEnv + statusDate + " : " + fileLink
 
     twitter.post(
       '/statuses/update',
