@@ -4838,10 +4838,12 @@ function run() {
                 access_token_secret: core.getInput('access-token-secret')
             });
             const statusEnv = new String(core.getInput('status'));
+            const hashTagEnv = new String(core.getInput('hashTag'));
+            const personTagEnv = new String(core.getInput('personTag'));
             const datevalue = new Date();
             const monthValue = datevalue.getMonth();
             const yearValue = datevalue.getFullYear();
-            const dayValue = datevalue.getDate();
+            const dayValue = datevalue.getDate() - 1;
             const months = [
                 'january',
                 'february',
@@ -4860,7 +4862,7 @@ function run() {
             const urlLink = core.getInput('url-link');
             const fileLink = `${urlLink}case-update-${months[monthValue]}-${dayValue}`;
             let twitterStatus = '';
-            twitterStatus += `${statusEnv}${statusDate}  : ${fileLink}`;
+            twitterStatus += `${statusEnv}${statusDate}  : ${fileLink} : ${hashTagEnv} ${personTagEnv}`;
             twitter.post('/statuses/update', { status: twitterStatus }, (error, data, response) => {
                 if (error)
                     throw error;
